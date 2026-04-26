@@ -11,9 +11,9 @@
     "watch:css": "npx @tailwindcss/cli -i ./_studio/ui/src/studio.src.css -o ./_studio/ui/dist/studio.css --watch",
     "watch:js": "node esbuild.config.js --watch",
     "watch": "npm run watch:css & npm run watch:js",
-    "icons": "mkdir -p ./assets/icons && cp ./node_modules/lucide-static/icons/*.svg ./assets/icons/",
-    "vendor:monaco": "mkdir -p ./_studio/ui/lib/monaco && rm -rf ./_studio/ui/lib/monaco/vs && cp -R ./node_modules/monaco-editor/min/vs ./_studio/ui/lib/monaco/vs",
-    "postinstall": "npm run icons && npm run vendor:monaco"
+    "icons": "node ./scripts/postinstall.mjs icons",
+    "vendor:monaco": "node ./scripts/postinstall.mjs monaco",
+    "postinstall": "node ./scripts/postinstall.mjs all"
   },
   "devDependencies": {
     "@tailwindcss/cli": "^4",

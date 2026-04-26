@@ -78,7 +78,7 @@
   --color-vs-text-ghost: var(--text-muted);
 
   --color-vs-accent: var(--border-focus);
-  --color-vs-accent-hover: #C2410C;
+  --color-vs-accent-hover: #0E7490;
   --color-vs-accent-dim: transparent;
   --color-vs-accent-glow: transparent;
 
@@ -94,20 +94,20 @@
 }
 
 :root {
-  --bg-app: #FAFAFA;
+  --bg-app: #F3F8FC;
   --bg-panel: #FFFFFF;
-  --bg-modal: #FFFFFF;
-  --border-base: #E4E4E7;
-  --border-focus: #EA580C;
-  --text-main: #09090B;
-  --text-muted: #52525B;
+  --bg-modal: #FCFEFF;
+  --border-base: #D6E2F4;
+  --border-focus: #0891B2;
+  --text-main: #0B1220;
+  --text-muted: #4D647E;
 
   --vs-bg-base: var(--bg-app);
   --vs-bg-surface: var(--bg-panel);
   --vs-bg-raised: var(--bg-modal);
   --vs-bg-input: transparent;
   --vs-bg-well: var(--bg-panel);
-  --vs-bg-hover: #F4F4F5;
+  --vs-bg-hover: #EAF2FA;
 
   --vs-border-subtle: var(--border-base);
   --vs-border-medium: var(--border-base);
@@ -119,9 +119,9 @@
   --vs-text-ghost: var(--text-muted);
 
   --vs-accent: var(--border-focus);
-  --vs-accent-hover: #C2410C;
-  --vs-accent-dim: rgba(234, 88, 12, 0.1);
-  --vs-accent-glow: rgba(234, 88, 12, 0.05);
+  --vs-accent-hover: #0E7490;
+  --vs-accent-dim: rgba(8, 145, 178, 0.12);
+  --vs-accent-glow: rgba(8, 145, 178, 0.08);
   
   --vs-success: #16A34A;
   --vs-warning: #CA8A04;
@@ -146,20 +146,20 @@
 }
 
 [data-theme="dark"] {
-  --bg-app: #09090B;
-  --bg-panel: #18181B;
-  --bg-modal: #27272A;
-  --border-base: #27272A;
-  --border-focus: #EA580C;
-  --text-main: #FAFAFA;
-  --text-muted: #A1A1AA;
+  --bg-app: #0B1220;
+  --bg-panel: #111A2B;
+  --bg-modal: #172235;
+  --border-base: #22314A;
+  --border-focus: #22D3EE;
+  --text-main: #F8FBFF;
+  --text-muted: #9FB2C8;
 
   --vs-bg-base: var(--bg-app);
   --vs-bg-surface: var(--bg-panel);
   --vs-bg-raised: var(--bg-modal);
-  --vs-bg-input: rgba(24, 24, 27, 0.5);
-  --vs-bg-well: #09090B;
-  --vs-bg-hover: #27272A;
+  --vs-bg-input: rgba(17, 26, 43, 0.68);
+  --vs-bg-well: #0F1728;
+  --vs-bg-hover: #1D2A40;
 
   --vs-border-subtle: var(--border-base);
   --vs-border-medium: var(--border-base);
@@ -171,9 +171,9 @@
   --vs-text-ghost: var(--text-muted);
 
   --vs-accent: var(--border-focus);
-  --vs-accent-hover: #EA580C;
-  --vs-accent-dim: rgba(234, 88, 12, 0.15);
-  --vs-accent-glow: rgba(234, 88, 12, 0.1);
+  --vs-accent-hover: #67E8F9;
+  --vs-accent-dim: rgba(34, 211, 238, 0.18);
+  --vs-accent-glow: rgba(34, 211, 238, 0.12);
   
   --vs-success: #4ADE80;
   --vs-warning: #FBBF24;
@@ -230,7 +230,7 @@ body {
   color: var(--vs-text-primary);
 }
 
-/* ── Focus visible — amber outline, never default blue ── */
+/* ── Focus visible — cyan outline ── */
 :focus-visible {
   outline: 2px solid var(--vs-accent);
   outline-offset: 2px;
@@ -362,7 +362,7 @@ body {
 
 @keyframes divider-pulse {
   0%, 100% { border-color: var(--vs-border-subtle); }
-  50% { border-color: rgba(244, 160, 36, 0.12); }
+  50% { border-color: rgba(34, 211, 238, 0.18); }
 }
 
 @keyframes typing-dot {
@@ -377,8 +377,8 @@ body {
 }
 
 @keyframes glow-pulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(244, 160, 36, 0); }
-  50% { box-shadow: 0 0 16px 2px rgba(244, 160, 36, 0.08); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(34, 211, 238, 0); }
+  50% { box-shadow: 0 0 16px 2px rgba(34, 211, 238, 0.12); }
 }
 
 @keyframes entrance-stagger-1 { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
@@ -454,15 +454,15 @@ body {
 }
 
 .vs-btn-primary:hover {
-  background: #C2410C;
-  box-shadow: 0 4px 14px rgba(234, 88, 12, 0.2);
+  background: var(--vs-accent-hover);
+  box-shadow: 0 4px 14px rgba(8, 145, 178, 0.22);
 }
 [data-theme="dark"] .vs-btn-primary {
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
 }
 [data-theme="dark"] .vs-btn-primary:hover {
-  background: #C2410C;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.1), 0 4px 14px rgba(234, 88, 12, 0.2);
+  background: var(--vs-accent-hover);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.1), 0 4px 14px rgba(34, 211, 238, 0.18);
 }
 
 .vs-btn-secondary {
@@ -472,12 +472,12 @@ body {
 }
 
 .vs-btn-secondary:hover {
-  background: #F4F4F5;
+  background: var(--vs-bg-hover);
   border-color: var(--vs-border-subtle);
   color: var(--vs-text-primary);
 }
 [data-theme="dark"] .vs-btn-secondary:hover {
-  background: #27272A;
+  background: var(--vs-bg-hover);
 }
 
 .vs-btn-ghost {

@@ -53,9 +53,9 @@ $basePath = '/_studio';
 </head>
 <body class="bg-vs-bg-base text-vs-text-primary min-h-screen flex items-center justify-center p-6">
 
-  <!-- Faint forge glow behind the card -->
+  <!-- Faint cyan glow behind the card -->
   <div class="fixed inset-0 pointer-events-none" aria-hidden="true"
-       style="background: radial-gradient(circle at 50% 50%, rgba(244,160,36,0.03) 0%, transparent 70%);"></div>
+       style="background: radial-gradient(circle at 50% 50%, rgba(34,211,238,0.08) 0%, rgba(59,130,246,0.03) 42%, transparent 72%);"></div>
 
   <!-- Installer card -->
   <div id="installer" class="relative w-full max-w-[520px]">

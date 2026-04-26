@@ -74,8 +74,8 @@ if ($isDefault && empty($tagline)) {
       display: flex;
       align-items: center;
       justify-content: center;
-      background: #0e0e11;
-      color: #e8e6e1;
+      background: #0b1220;
+      color: #e6edf7;
       -webkit-font-smoothing: antialiased;
       overflow: hidden;
     }
@@ -95,7 +95,7 @@ if ($isDefault && empty($tagline)) {
       width: 500px;
       height: 500px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(244,160,36,0.08) 0%, rgba(244,160,36,0.02) 40%, transparent 70%);
+      background: radial-gradient(circle, rgba(34,211,238,0.14) 0%, rgba(59,130,246,0.07) 38%, transparent 72%);
       animation: aura-pulse 4s ease-in-out infinite;
     }
 
@@ -112,7 +112,7 @@ if ($isDefault && empty($tagline)) {
     .logo-icon {
       width: 48px;
       height: 48px;
-      color: #f4a024;
+      color: #67e8f9;
       margin: 0 auto 1.25rem;
     }
 
@@ -121,13 +121,13 @@ if ($isDefault && empty($tagline)) {
       font-weight: 700;
       letter-spacing: -0.03em;
       line-height: 1.1;
-      color: #f0ede6;
+      color: #f8fbff;
     }
 
     .tagline {
       font-size: clamp(1rem, 2.5vw, 1.25rem);
       font-weight: 400;
-      color: rgba(232, 230, 225, 0.45);
+      color: rgba(214, 226, 244, 0.68);
       margin-top: 0.75rem;
       letter-spacing: -0.01em;
     }
@@ -139,13 +139,13 @@ if ($isDefault && empty($tagline)) {
       right: 1.25rem;
       width: 28px;
       height: 28px;
-      color: rgba(232, 230, 225, 0.12);
+      color: rgba(214, 226, 244, 0.18);
       transition: color 0.3s ease;
       text-decoration: none;
     }
 
     .studio-key:hover {
-      color: rgba(244, 160, 36, 0.5);
+      color: rgba(103, 232, 249, 0.72);
     }
 
     .studio-key svg {
