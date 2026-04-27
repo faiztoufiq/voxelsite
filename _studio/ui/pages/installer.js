@@ -335,12 +335,31 @@ function renderStep2() {
   const providerCards = providerIds.map(pid => {
     const p = providers[pid];
     const isSelected = state.aiProvider === pid;
-    const borderClass = isSelected ? 'border-vs-accent bg-vs-accent-dim' : 'border-vs-border-subtle hover:border-vs-border-medium';
     const recommended = pid === 'claude' ? `<span class="text-[11px] font-medium text-vs-accent bg-vs-accent-dim px-2 py-0.5 rounded-full">Recommended</span>` : '';
+    
+    // Brand colors for vibrance
+    const brandColors = {
+      'claude': '#D97757',
+      'openai': '#10A37F',
+      'gemini': '#1B73E8',
+      'deepseek': '#4D6BFE'
+    };
+    const brandColor = brandColors[pid] || 'var(--vs-text-ghost)';
+    const selectedBorderBgColor = brandColors[pid] || 'var(--vs-accent)';
+    const dot = `<span class="w-2.5 h-2.5 rounded-full mr-2.5 shrink-0" style="background-color: ${brandColor}; box-shadow: 0 0 6px ${brandColor}40;"></span>`;
+
+    const borderClass = 'vs-ai-provider-card';
+    const inlineStyle = isSelected 
+      ? `padding: 12px 14px; border-color: ${selectedBorderBgColor}; background-color: color-mix(in srgb, ${selectedBorderBgColor} 10%, transparent); box-shadow: 0 0 0 1px color-mix(in srgb, ${selectedBorderBgColor} 30%, transparent);`
+      : `padding: 12px 14px; border-color: color-mix(in srgb, ${selectedBorderBgColor} 15%, var(--vs-border-subtle)); background-color: color-mix(in srgb, ${selectedBorderBgColor} 3%, transparent); --hover-brand: ${selectedBorderBgColor};`;
+
     return `<button data-provider="${pid}"
-      class="text-left rounded-lg border ${borderClass} cursor-pointer transition-colors" style="padding: 12px 14px;">
+      class="text-left rounded-lg border ${borderClass} cursor-pointer transition-colors" style="${inlineStyle}">
       <div class="flex items-center justify-between">
-        <span class="text-sm font-semibold text-vs-text-primary">${esc(p.name)}</span>
+        <div class="flex items-center">
+          ${dot}
+          <span class="text-sm font-semibold text-vs-text-primary">${esc(p.name)}</span>
+        </div>
         ${recommended}
       </div>
     </button>`;
@@ -418,6 +437,14 @@ function renderStep2() {
   const canContinue = state.aiVerified && state.aiModel;
 
   return `
+    <style>
+      .vs-ai-provider-card { transition: all 150ms ease; }
+      .vs-ai-provider-card:hover { 
+        border-color: var(--hover-brand) !important;
+        background-color: color-mix(in srgb, var(--hover-brand) 3%, transparent) !important;
+        box-shadow: 0 0 0 1px color-mix(in srgb, var(--hover-brand) 10%, transparent) !important;
+      }
+    </style>
     <h2 class="text-xl font-semibold text-vs-text-primary" style="margin-bottom: 24px;">Connect Your AI</h2>
 
     <div class="grid gap-2" style="grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); margin-bottom: 24px;">
@@ -428,7 +455,7 @@ function renderStep2() {
 
     <div style="margin-top: 16px;">
       <button id="btn-verify-key"
-        class="px-4 py-2 rounded-lg text-sm font-medium bg-vs-bg-raised border border-vs-border-subtle text-vs-text-secondary hover:bg-vs-bg-surface hover:border-vs-border-medium transition-colors cursor-pointer">
+        class="px-4 py-2 rounded-lg text-sm font-medium bg-vs-accent text-white border border-vs-accent hover:bg-vs-accent-hover transition-colors cursor-pointer shadow-sm">
         ${state.aiVerified ? '✓ Verified' : 'Verify Key'}
       </button>
       ${verifyHtml}
